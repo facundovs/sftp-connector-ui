@@ -3,5 +3,5 @@
 /.tmp
 /.sass-cache
 /bower_components
-/.idea/workspace.xml
+.idea/workspace.xml
 /.idea/vcs.xml
