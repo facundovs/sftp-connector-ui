@@ -1,0 +1,30 @@
+<button type="button" class="btn btn-default pull-right" translate ng-click="Lel.newLel()" >NEW</button>
+<table st-table="Lel.listOfLels" class="table table-striped">
+    <thead>
+    <tr>
+        <th st-sort="name" translate>NAME</th>
+        <th translate>DESCRIPTION</th>
+        <th translate>CUSTOMER</th>
+        <th translate>ACTIONS</th>
+    </tr>
+    <tr>
+        <th>
+            <input st-search="name" placeholder="{{ 'FILTER_BY_NAME' | translate }}" class="input-sm form-control" type="search"/>
+        </th>
+        <th colspan="3">
+            <input st-search placeholder="{{ 'GLOBAL_FILTER' | translate }}" class="input-sm form-control" type="search"/>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in Lel.listOfLels">
+        <td>{{row.name}}</td>
+        <td>{{row.description }}</td>
+        <td>{{row.customer }}</td>
+        <td>
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
