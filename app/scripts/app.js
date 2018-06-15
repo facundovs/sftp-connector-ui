@@ -13,12 +13,17 @@ angular
   ])
   .config(function ($routeProvider,$translateProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+      .when('/data-mapper', {
+        templateUrl: 'views/data-mapper.html',
+        controller: 'DataMapperCtrl',
+        controllerAs: 'dataMapper'
       })
-      .when('/data-sources', {
+      .when('/suggestion', {
+        templateUrl: 'views/suggestion.html',
+        controller: 'SuggestionCtrl',
+        controllerAs: 'suggestion'
+      })
+      .when('/', {
         templateUrl: 'views/feed.html',
         controller: 'FeedCtrl',
         controllerAs: 'feed'
