@@ -1,1 +1,43 @@
 
+
+    <h1 class="page-header">Data Mapper</h1>
+
+        <form>
+          <!-- RAW DATA INPUT -->
+          <div class="form-group">
+            <label for="mapperName">Mapper Name</label>
+            <input type="text" class="form-control" id="mapperName" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="userRawData">Add the raw data</label>
+            <textarea id="userRawData" class="form-control" ng-model="myTextarea"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="entityType">Select entity type</label>
+            <select id="entityType" class="form-control" ng-model="myVar">
+                <option value="">Auto Infered
+                <option value="site">Site
+                <option value="purchaseOrder">Purchase Order
+            </select>
+          </div>
+          <div class="form-group">
+
+            <button type="submit" class="btn btn-default">GET SUGGESTIONS</button>
+          </div>
+          <table st-table="rowCollection" class="table table-striped">
+          	<thead>
+          	<tr>
+          		<th>Client Identifier</th>
+          		<th>Elementum Identifier</th>
+          		<th>Confidence LEVEL</th>
+          	</tr>
+          	</thead>
+          	<tbody>
+          	<tr ng-repeat="row in rowCollection">
+          		<td>{{row.clientIdentifier}}</td>
+          		<td>{{row.elementumIdentifier}}</td>
+          		<td>{{row.confidenceLevel | percentage:2}}</td>
+          	</tr>
+          	</tbody>
+          </table>
+      </form>
