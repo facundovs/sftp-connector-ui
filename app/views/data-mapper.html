@@ -1,7 +1,6 @@
 <h1 class="page-header">Data Mapper</h1>
 
 <form>
-  <!-- RAW DATA INPUT -->
   <div class="form-group">
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -11,8 +10,8 @@
       <div class="form-group col-md-6">
         <div class="form-group">
           <label for="entityType">Select entity type</label>
-          <select id="entityType" class="form-control">
-            <option value="">Auto Infered
+          <select id="entityType" class="form-control" ng-model="dataMapper.mapper.entityType" ng-change="dataMapper.changeEntityType()">
+            <option value="" >Auto Infered
             <option value="site">Site
             <option value="purchaseOrder">Purchase Order
           </select>
@@ -20,9 +19,13 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-12">
-        <label for="userRawData">Add the raw data</label>
-        <textarea id="userRawData" class="form-control"></textarea>
+      <div class="form-group col-md-6">
+        <label for="rawData">Raw data</label>
+        <textarea id="rawData" class="form-control" rows="8"></textarea>
+      </div>
+      <div class="form-group col-md-6 sample-show-hide" ng-show="dataMapper.showElementumTemplate">
+        <label for="elementumTemplate">Elementum template</label>
+        <textarea id="elementumTemplate" class="form-control" rows="8"></textarea>
       </div>
     </div>
     <div class="form-row col-md-12 text-center">
