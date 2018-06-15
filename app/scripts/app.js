@@ -23,21 +23,6 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/Lel', {
-        templateUrl: 'views/lel.html',
-        controller: 'LelCtrl',
-        controllerAs: 'Lel'
-      })
-      .when('/Scenarios', {
-        templateUrl: 'views/scenarios.html',
-        controller: 'ScenariosCtrl',
-        controllerAs: 'Scenarios'
-      })
-      .when('/LelCrud', {
-        templateUrl: 'views/lelcrud.html',
-        controller: 'LelcrudCtrl',
-        controllerAs: 'LelCrud'
-      })
       .otherwise({
         redirectTo: '/'
       });
@@ -71,7 +56,7 @@ angular
       };
 
       var files = [
-          'lel.json' , 'commons.json'
+          'commons.json'
       ];
       angular.forEach(files, function (file) {
           translationEntries.push({ prefix: 'translations/', suffix: '/' + file });
