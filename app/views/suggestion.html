@@ -1,17 +1,27 @@
 <h1 class="page-header">Suggestions</h1>
-<table st-table="rowCollection" class="table table-striped">
-  <thead>
-  <tr>
-    <th>Client Identifier</th>
-    <th>Elementum Identifier</th>
-    <th>Confidence LEVEL</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr ng-repeat="row in rowCollection">
-    <td>{{row.clientIdentifier}}</td>
-    <td>{{row.elementumIdentifier}}</td>
-    <td>{{row.confidenceLevel | percentage:2}}</td>
-  </tr>
-  </tbody>
-</table>
+<div ng-repeat="entity in suggestion.data">
+  <h3>{{entity.entity}}</h3>
+  <table st-table="rowCollection" class="table table-striped">
+    <thead>
+    <tr>
+      <th>Client Identifier</th>
+      <th>Elementum Identifier</th>
+      <th>Confidence LEVEL</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in entity.mapping">
+      <td>{{row.clientIdentifier}}</td>
+      <td>
+        <select ng-options="opt for opt in entity.elementumFields.split(',')" ng-model="row.elementumIdentifier">
+
+        </select>
+      </td>
+      <td>{{row.confidenceLevel}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <hr>
+  <br>
+</div>

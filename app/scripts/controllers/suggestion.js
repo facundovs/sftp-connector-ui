@@ -15,6 +15,8 @@ angular.module('sftpApp')
       console.info("Get suggestions from server...");
       HttpService.post("https://tkr051xexg.execute-api.us-east-1.amazonaws.com/v1/suggestions", null, function (response){
         console.log("Received response", response.data);
+        vm.data = response.data;
+        console.info("data:" + vm.data.length);
       });
     };
 
