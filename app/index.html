@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-growl-v2/build/angular-growl.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -16,26 +17,28 @@
     <!-- endbuild -->
   </head>
   <body ng-app="sftpApp">
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#/" translate>Connectors</a>
-          </div>
+  <div growl></div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+  <!--<div class="header">-->
+      <!--<div class="navbar navbar-default" role="navigation">-->
+        <!--<div class="container">-->
+          <!--<div class="navbar-header">-->
+            <!--<a class="navbar-brand" href="#/" translate>Connectors</a>-->
+          <!--</div>-->
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#!/feed" translate>Feeds</a></li>
-              <li><a href="#!/data-mapper" translate>Data Mappers</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+          <!--<div class="collapse navbar-collapse" id="js-navbar-collapse">-->
+
+            <!--<ul class="nav navbar-nav">-->
+              <!--<li class="active"><a href="#!/feed" translate>Feeds</a></li>-->
+              <!--<li><a href="#!/data-mapper" translate>Data Mappers</a></li>-->
+            <!--</ul>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
 
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view=""></div>
     </div>
 
     <!--<div class="footer">-->
@@ -68,6 +71,7 @@
     <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -78,6 +82,8 @@
         <script src="scripts/controllers/suggestion.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/services/http-client.js"></script>
-    <!-- endbuild -->
+        <script src="scripts/controllers/new-feed.js"></script>
+
+  <!-- endbuild -->
 </body>
 </html>

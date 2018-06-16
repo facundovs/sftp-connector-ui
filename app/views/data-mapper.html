@@ -2,35 +2,29 @@
 
 <form>
   <div class="form-group">
-    <div class="form-row">
+    <div class="form-row text-center">
       <div class="form-group col-md-6">
-        <label for="mapperName">Mapper Name</label>
-        <input type="text" class="form-control" id="mapperName" placeholder="Name">
-      </div>
-      <div class="form-group col-md-6">
-        <div class="form-group">
-          <label for="entityType">Select entity type</label>
-          <select id="entityType" class="form-control" ng-model="dataMapper.mapper.entityType" ng-change="dataMapper.changeEntityType()">
-            <option value="" >Auto Infered
-            <option value="site">Site
-            <option value="purchaseOrder">Purchase Order
-          </select>
-        </div>
+        <label for="file">Upload your CSV File</label>
+        <input type="file" class="form-control" id="file">
+        <div class="form-group"/>
+        <button type="submit" class="btn btn-primary" ng-click="dataMapper.upload()">Upload</button>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="rawData">Raw data</label>
-        <textarea id="rawData" class="form-control" rows="8"></textarea>
-      </div>
-      <div class="form-group col-md-6 sample-show-hide" ng-show="dataMapper.showElementumTemplate">
-        <label for="elementumTemplate">Elementum template</label>
-        <textarea id="elementumTemplate" class="form-control" rows="8"></textarea>
+        <textarea ui-codemirror id="rawData" class="form-control" rows="17" ng-model="dataMapper.jsonInput"></textarea>
       </div>
     </div>
     <div class="form-row col-md-12 text-center">
-      <div class="form-group text-center" ng-click="dataMapper.getSuggestions()">
-        <button type="submit" class="btn btn-default">Get Suggestions</button>
+
+      <div class="col-md-6">
+
+      </div>
+
+      <div class="col-md-6 center">
+        <button type="submit" class="btn btn-primary" ng-click="dataMapper.getSuggestions()">Get Suggestions</button>
+        <button type="submit" class="btn btn-danger"  ng-click="dataMapper.cancel()">Cancel</button>
       </div>
     </div>
   </div>

@@ -9,26 +9,32 @@ angular
     'ngSanitize',
     'ngTouch',
     'smart-table',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angular-growl'
   ])
-  .config(function ($routeProvider,$translateProvider) {
+  .config(function ($routeProvider,$translateProvider, growlProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
+      // .when('/', {
+      //   templateUrl: 'views/main.html',
+      //   controller: 'MainCtrl',
+      //   controllerAs: 'main'
+      // })
       .when('/data-mapper', {
         templateUrl: 'views/data-mapper.html',
         controller: 'DataMapperCtrl',
         controllerAs: 'dataMapper'
+      })
+      .when('/new-feed', {
+        templateUrl: 'views/new-feed.html',
+        controller: 'NewFeedCtrl',
+        controllerAs: 'newFeed'
       })
       .when('/suggestion', {
         templateUrl: 'views/suggestion.html',
         controller: 'SuggestionCtrl',
         controllerAs: 'suggestion'
       })
-      .when('/feed', {
+      .when('/', {
         templateUrl: 'views/feed.html',
         controller: 'FeedCtrl',
         controllerAs: 'feed'
@@ -68,6 +74,13 @@ angular
       var files = [
           'commons.json'
       ];
+
+    growlProvider.globalDisableCountDown(true).globalTimeToLive({
+      success: 10000,
+      warning: 5000,
+      info: 2000
+    });
+
       angular.forEach(files, function (file) {
           translationEntries.push({ prefix: 'translations/', suffix: '/' + file });
       });
