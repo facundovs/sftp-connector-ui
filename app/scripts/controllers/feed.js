@@ -8,8 +8,8 @@ angular.module('sftpApp')
 
     vm.getFeeds = function () {
       console.log("Getting feeds...");
-      HttpService.get("https://tkr051xexg.execute-api.us-east-1.amazonaws.com/v1/connectorconfigs", function (response) {
-        vm.feeds = response.data.connectorConfigs;
+      HttpService.get("http://localhost:8080/connectors/v1/connectorconfigs", function (response) {
+        vm.feeds = response.data;
         console.log("Feeds obtained!", vm.feeds);
       });
     };

@@ -11,13 +11,13 @@ function HttpService($http) {
   $http.defaults.headers.put = {};
   $http.defaults.headers.patch = {};
   $http.defaults.headers.post["Content-Type"] = "application/json";
-  //  $http.defaults.headers.common["Accept"] = "application/json";
+  $http.defaults.headers.common["Accept"] = "application/json";
 
 
   var doNoOkDefault = function(response) {
     console.error("Generic error", response);
   };
-  
+
   return {
 
     get:
