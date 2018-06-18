@@ -2,7 +2,7 @@
 
 
 angular.module('sftpApp')
-  .controller('SuggestionCtrl', function ($location,HttpService) {
+  .controller('SuggestionCtrl', function ($location,HttpService,growl) {
     console.info("Suggestions controller is starting...");
 
     var vm = this;
@@ -35,8 +35,16 @@ angular.module('sftpApp')
             }
           }
         }
-          //Do something
       }
+    }
+
+    vm.enableConnection = function(){
+      console.info("Enabling Connection...");
+      HttpService.put("https://tkr051xexg.execute-api.us-east-1.amazonaws.com/v1/connectorconfigs", null, function (response) {
+        growl.success("The connector was updated", {"title": "Info"});
+        console.log("Feeds updated!", vm.feeds);
+        $location.path("/");
+      });
     }
 
     vm.cancel = function () {
