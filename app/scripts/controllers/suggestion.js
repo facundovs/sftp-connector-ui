@@ -6,6 +6,22 @@ angular.module('sftpApp')
     console.info("Suggestions controller is starting...");
 
     var vm = this;
+    vm.rawData = {
+      prt:"DummyValue",
+      prtName:"DummyValue",
+      prtType:"DummyValue",
+      prtParent:"DummyValue",
+      Address:"DummyValue",
+      CityLocality:"DummyValue",
+      StateRegion:"DummyValue",
+      PostalZipcode:"DummyValue",
+      Country:"DummyValue",
+      WebsiteURL:"DummyValue",
+      Contactperson:"DummyValue",
+      Phone:"DummyValue",
+      Email:"DummyValue",
+      Fax:"DummyValue"
+    };
 
     vm.init = function () {
       vm.getSuggestions();
@@ -13,7 +29,7 @@ angular.module('sftpApp')
 
     vm.getSuggestions = function () {
       console.info("Get suggestions from server...");
-      HttpService.post("https://tkr051xexg.execute-api.us-east-1.amazonaws.com/v1/suggestions", null, function (response){
+      HttpService.post("https://tkr051xexg.execute-api.us-east-1.amazonaws.com/v1/suggestions", vm.rawData, function (response){
         console.log("Received response", response.data);
         vm.data = response.data;
         vm.original = angular.copy(vm.data)
