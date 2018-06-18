@@ -30,9 +30,11 @@ angular.module('sftpApp')
     vm.getSuggestions = function () {
       console.info("Get suggestions from server...");
       HttpService.post("http://localhost:8080/connectors/v1/suggestions", vm.rawData, function (response){
+
+      // HttpService.post("http://localhost:8080/connectors/v1/suggestions", vm.rawData, function (response){
         console.log("Received response", response.data);
         vm.data = response.data;
-        vm.original = angular.copy(vm.data)
+        vm.original = angular.copy(vm.data);
         console.info("data:" + vm.data.length);
       });
     };
@@ -40,17 +42,19 @@ angular.module('sftpApp')
     vm.updateConfidenceLevel = function(entity,row) {
       console.log("Elementum field changed...",entity,row);
       row.confidenceLevel ='';
-      console.log("Searchig for entity",entity.entity)
-      for (var i = 0; i < vm.original.length; i++) {
-        if(vm.original[i].entity == entity.entity){
-          console.log("searching in", row.clientIdentifier, row.elementumIdentifier)
-          for(var j = 0; j < vm.original[i].mapping.length; j++) {
-            if(vm.original[i].mapping[j].elementumIdentifier == row.elementumIdentifier && vm.original[i].mapping[j].clientIdentifier == row.clientIdentifier ) {
-              console.log(vm.original[i].mapping[j].confidenceLevel);
-              row.confidenceLevel = vm.original[i].mapping[j].confidenceLevel;
+      console.log("Searchig for entity",entity.entity);
+      // for (var i = 0; i < vm.original.length; i++) {
+      //   if(vm.original[i].entity == entity.entity){
+          console.log("searching in", row.clientIdentifier, row.elementumIdentifier);
+          console.log("lenght", vm.original.mapping.length);
+          for(var j = 0; j < vm.original.mapping.length; j++) {
+
+            if(vm.original.mapping[j].elementumIdentifier == row.elementumIdentifier && vm.original.mapping[j].clientIdentifier == row.clientIdentifier ) {
+              console.log(vm.original.mapping[j].confidenceLevel);
+              row.confidenceLevel = vm.original.mapping[j].confidenceLevel;
             }
-          }
-        }
+        //   }
+        // }
       }
     }
 

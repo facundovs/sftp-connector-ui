@@ -1,8 +1,7 @@
 <h1 class="page-header">Suggestions</h1>
 <form>
   <div class="form-group">
-    <div ng-repeat="entity in suggestion.data">
-      <h3>{{entity.entity}}</h3>
+      <h3>{{suggestion.data.entity}}</h3>
       <table st-table="rowCollection" class="table table-striped">
         <thead>
         <tr>
@@ -12,11 +11,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="row in entity.mapping">
+        <tr ng-repeat="row in suggestion.data.mapping">
           <td>{{row.clientIdentifier}}</td>
           <td>
-            <select ng-options="opt for opt in entity.elementumFields.split(',')" ng-model="row.elementumIdentifier"
-                    ng-change="suggestion.updateConfidenceLevel(entity, row)">
+            <select ng-options="opt for opt in suggestion.data.elementumFields.toLowerCase().split(',')" ng-model="row.elementumIdentifier"
+                    ng-change="suggestion.updateConfidenceLevel(suggestion.data, row)">
             </select>
           </td>
           <td>{{row.confidenceLevel}}</td>
@@ -32,5 +31,4 @@
         <button type="submit" class="btn btn-danger"  ng-click="suggestion.cancel()">Cancel</button>
       </div>
     </div>
-  </div>
 </form>
