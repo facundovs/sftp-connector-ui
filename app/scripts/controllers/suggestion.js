@@ -29,7 +29,7 @@ angular.module('sftpApp')
 
     vm.getSuggestions = function () {
       console.info("Get suggestions from server...");
-      HttpService.post("https://tkr051xexg.execute-api.us-east-1.amazonaws.com/v1/suggestions", vm.rawData, function (response){
+      HttpService.post("http://localhost:8080/connectors/v1/suggestions", vm.rawData, function (response){
         console.log("Received response", response.data);
         vm.data = response.data;
         vm.original = angular.copy(vm.data)
